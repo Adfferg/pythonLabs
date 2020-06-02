@@ -1,0 +1,29 @@
+{% extends "mainPage/mainHtmlFile.html" %}
+{% block title %}
+{{ tag.title }}
+{% endblock %}
+
+{% block content %}
+<h1 class="mt-5">
+    Посты пользователя {{ author_of_post.User_Name }}
+</h1>
+<h4>
+</h4>
+{% for post in author_of_post.user_posts.all %}
+<div class="card">
+    <div class="card-header">
+        {{ post.date_pub }}
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{ post.title }}</h5>
+        <p class="card-text">{{ post.body|truncatewords:15}}</p>
+        <a href="{{ post.get_absolute_url }}" class="btn btn-light">Читать</a>
+        {% for author in post.name_of_user.all %}
+        {% if author.User_Name == user.get_username %}
+        <a href="{{ post.get_update_url }}" class="btn btn-light">Изменить</a>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

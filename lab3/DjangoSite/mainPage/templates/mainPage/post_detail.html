@@ -1,0 +1,19 @@
+{% extends "mainPage/mainHtmlFile.html" %}
+{% block title %}
+{{ post.title }}
+{% endblock %}
+
+{% block content %}
+<h5 class="mt-5">
+    {% for author in post.name_of_user.all %}
+    {{ author }}
+    {% endfor %}
+
+</h5>
+<h3 class="mt-5">
+    {{ post.title }}
+</h3>
+<p>
+    {{ post.body}}
+</p>
+{% endblock %}

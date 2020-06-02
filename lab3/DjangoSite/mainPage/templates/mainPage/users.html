@@ -1,0 +1,14 @@
+{% extends "mainPage/mainHtmlFile.html" %}
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<h1 class="mb-5">Пользователи:</h1>
+{% for user in users %}
+<h3><a class="p-2 text-dark" href="{% url 'show_profile_url' site_user=user.username %}">{{ user.username }}</a>
+    {% if user.is_superuser %}
+        Admin
+    {% endif %}</h3>
+
+{% endfor%}
+{% endblock %}

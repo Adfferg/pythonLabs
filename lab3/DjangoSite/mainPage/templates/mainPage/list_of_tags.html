@@ -1,0 +1,13 @@
+{% extends "mainPage/mainHtmlFile.html" %}
+{% block title %}
+{% endblock %}
+
+{% block content %}
+    <h1 class="mb-5">Тэги:</h1>
+    {% for tag in tags %}
+        <h3><a class="p-2 text-dark" href="{{ tag.get_absolute_url }}">{{ tag.title }}</a>
+        {% if user.is_superuser %}
+        <a class="p-2 text-dark" href="{{ tag.get_update_url }}">Изменить</a>
+        {% endif %}</h3>
+    {% endfor%}
+{% endblock %}

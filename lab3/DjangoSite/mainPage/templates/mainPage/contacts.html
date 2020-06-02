@@ -1,0 +1,9 @@
+{% extends "mainPage/mainHtmlFile.html" %}
+{% load static %}
+{% block content %}
+<h3>Контактная информация</h3>
+    {% for val in values %}
+        <p>{{val}}</p>
+    {% endfor %}
+<a href="/" class="btn btn-info btn-lg">На главную &raquo;</a>
+{% endblock %}
